@@ -1,5 +1,5 @@
 ﻿//
-// AssemblyInfo.cs
+// GameObjectLoaderSystem.cs
 //
 // Author:
 //       Vladimir Kuskov <vladimir.kuskov@hotmail.com>
@@ -23,30 +23,33 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-using System.Reflection;
-using System.Runtime.CompilerServices;
+using System;
+using System.Collections.Generic;
+using Entitas;
+using Heartcatch.Core;
 
-// Information about this assembly is defined by the following attributes.
-// Change them to the values specific to your project.
+namespace SeshFT.Gameplay {
+    
+    public class GameObjectLoaderSystem : BaseSystem, IReactiveSystem {
+        [Inject]
+        private IResourceLoader _loader;
 
-[assembly: AssemblyTitle("SeshFT.Gameplay")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("Vladimir Kuskov")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("ru-RU")]
+        public GameObjectLoaderSystem(IDependencyManager dm) : base(dm) {
+        }
 
-// The assembly version has the format "{Major}.{Minor}.{Build}.{Revision}".
-// The form "{Major}.{Minor}.*" will automatically update the build and revision,
-// and "{Major}.{Minor}.{Build}.*" will update just the revision.
+        public void Execute(List<Entity> entities) {
+            foreach (var it in entities) {
+                var resource = it.resource;
+                var go = _loader.LoadGameObject(resource.assetBundle, resource.assetName);
+            }
+        }
 
-[assembly: AssemblyVersion("1.0.*")]
+        public TriggerOnEvent trigger {
+            get {
+                return CoreMatcher.Resource.OnEntityAdded();
+            }
+        }
+    }
 
-// The following attributes are used to specify the signing key for the assembly,
-// if desired. See the Mono documentation for more information about signing.
-
-//[assembly: AssemblyDelaySign(false)]
-//[assembly: AssemblyKeyFile("")]
+}
 

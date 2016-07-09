@@ -1,5 +1,5 @@
 ﻿//
-// AssemblyInfo.cs
+// CoreSpec.cs
 //
 // Author:
 //       Vladimir Kuskov <vladimir.kuskov@hotmail.com>
@@ -23,30 +23,41 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
+using System;
 using System.Reflection;
-using System.Runtime.CompilerServices;
+using Entitas;
+using Heartcatch.Core;
+using NSpec;
 
-// Information about this assembly is defined by the following attributes.
-// Change them to the values specific to your project.
+namespace SeshFT.Gameplay.Test {
+    
+    public abstract class CoreSpec : nspec {
 
-[assembly: AssemblyTitle("SeshFT.Gameplay")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("Vladimir Kuskov")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("ru-RU")]
+        protected Pool _pool;
+        protected IDependencyManager _dm;
+        protected Systems _systems;
 
-// The assembly version has the format "{Major}.{Minor}.{Build}.{Revision}".
-// The form "{Major}.{Minor}.*" will automatically update the build and revision,
-// and "{Major}.{Minor}.{Build}.*" will update just the revision.
+        void before_each() {
+            _pool = new Pool(CoreComponentIds.TotalComponents);
+            _dm = new DependencyManager();
+            _systems = new Systems();
+        }
 
-[assembly: AssemblyVersion("1.0.*")]
+        protected void addSystem<TSystem>() where TSystem : BaseSystem, ISystem  {
+            _systems.Add(_pool.CreateSystem(createSystem<TSystem>()));
+        }
 
-// The following attributes are used to specify the signing key for the assembly,
-// if desired. See the Mono documentation for more information about signing.
+        private TSystem createSystem<TSystem>() where TSystem : BaseSystem, ISystem {
+            return (TSystem)Activator.CreateInstance(typeof(TSystem), _dm);
+        }
 
-//[assembly: AssemblyDelaySign(false)]
-//[assembly: AssemblyKeyFile("")]
+        protected Entity createEntity() {
+            return _pool.CreateEntity();
+        }
+
+        protected void execute() {
+            _systems.Execute();
+        }
+    }
+}
 

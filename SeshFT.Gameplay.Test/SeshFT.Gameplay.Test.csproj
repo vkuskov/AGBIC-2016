@@ -29,9 +29,26 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="NSpec">
+      <HintPath>..\..\Heartcatch\Deps\NSpec\NSpec.dll</HintPath>
+    </Reference>
+    <Reference Include="NSubstitute">
+      <HintPath>..\..\Heartcatch\Deps\NSubstitute\NSubstitute.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\Heartcatch\Deps\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Heartcatch.Core">
+      <HintPath>..\Deps\Heartcatch.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Heartcatch.MathLib">
+      <HintPath>..\Deps\Heartcatch.MathLib.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="describe_ViewFeature.cs" />
+    <Compile Include="CoreSpec.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

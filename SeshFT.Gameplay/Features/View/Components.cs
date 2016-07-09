@@ -1,5 +1,5 @@
 ﻿//
-// AssemblyInfo.cs
+// Components.cs
 //
 // Author:
 //       Vladimir Kuskov <vladimir.kuskov@hotmail.com>
@@ -23,30 +23,35 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-using System.Reflection;
-using System.Runtime.CompilerServices;
 
-// Information about this assembly is defined by the following attributes.
-// Change them to the values specific to your project.
+using Entitas;
 
-[assembly: AssemblyTitle("SeshFT.Gameplay")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("Vladimir Kuskov")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("ru-RU")]
+namespace SeshFT.Gameplay {
 
-// The assembly version has the format "{Major}.{Minor}.{Build}.{Revision}".
-// The form "{Major}.{Minor}.*" will automatically update the build and revision,
-// and "{Major}.{Minor}.{Build}.*" will update just the revision.
+    [Core]
+    public sealed class ResourceComponent : IComponent {
+        public string assetBundle;
+        public string assetName;
+    }
 
-[assembly: AssemblyVersion("1.0.*")]
+    [Core]
+    public sealed class GameObjectComponent : IComponent {
+        public IGameObject value;
+    }
 
-// The following attributes are used to specify the signing key for the assembly,
-// if desired. See the Mono documentation for more information about signing.
+    [Core]
+    public sealed class UpdateableComponent : IComponent {
+        public IUpdateable value;
+    }
 
-//[assembly: AssemblyDelaySign(false)]
-//[assembly: AssemblyKeyFile("")]
+    [Core]
+    public sealed class UpdateableBeforeComponent : IComponent {
+        public IUpdateableBefore value;
+    }
 
+    [Core]
+    public sealed class UpdateableAfterComponent : IComponent {
+        public IUpdateableAfter value;
+    }
+
+}

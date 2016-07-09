@@ -7,12 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public static class CoreComponentIds {
+    public const int GameObject = 0;
+    public const int Resource = 1;
+    public const int UpdateableAfter = 2;
+    public const int UpdateableBefore = 3;
+    public const int Updateable = 4;
 
-    public const int TotalComponents = 0;
+    public const int TotalComponents = 5;
 
     public static readonly string[] componentNames = {
+        "GameObject",
+        "Resource",
+        "UpdateableAfter",
+        "UpdateableBefore",
+        "Updateable"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(SeshFT.Gameplay.GameObjectComponent),
+        typeof(SeshFT.Gameplay.ResourceComponent),
+        typeof(SeshFT.Gameplay.UpdateableAfterComponent),
+        typeof(SeshFT.Gameplay.UpdateableBeforeComponent),
+        typeof(SeshFT.Gameplay.UpdateableComponent)
     };
 }
