@@ -42,7 +42,9 @@ namespace SeshFT.Unity {
             _systems = createSystem(dm);
 
             Pools.core.CreateEntity()
-                .AddResource(null, "TestCube");
+                .AddResource(null, "TestCube")
+                .AddTransformation(new Heartcatch.MathLib.Vector3(0, 0, 2.0f),
+                    Heartcatch.MathLib.Quaternion.Identity);
         }
 
         private void initDependencies(IDependencyManager dm) {

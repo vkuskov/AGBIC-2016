@@ -34,10 +34,12 @@ namespace SeshFT.Unity {
         
         public Entity Entity { get; private set; }
 
-        public void OnAddedToEntity(Entity entity) {
+        public virtual void OnAddedToEntity(Entity entity) {
             Entity = entity;
             if (entity.hasTransformation) {
-                
+                var transform = entity.transformation;
+                this.transform.position = UnityHelpers.Vector3ToUnity(transform.position);
+                this.transform.rotation = UnityHelpers.QuaternionToUnity(transform.rotation);
             }
         }
 
