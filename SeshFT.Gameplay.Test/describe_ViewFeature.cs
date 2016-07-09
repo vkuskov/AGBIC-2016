@@ -79,7 +79,7 @@ namespace SeshFT.Gameplay.Test {
                 var entity = createEntity()
                     .AddGameObject(go);
                 execute();
-                go.Received().OnEntityCreated(entity);
+                go.Received().OnAddedToEntity(entity);
             };
             it["Should add UpdateableComponent if object has IUpdateable"] = () => {
                 var updateable = Substitute.For<IGameObject, IUpdateable>();

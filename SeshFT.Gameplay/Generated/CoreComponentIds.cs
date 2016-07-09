@@ -7,22 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public static class CoreComponentIds {
-    public const int DesiredFaceDirection = 0;
-    public const int DesiredMoveDirection = 1;
-    public const int DesiredMoveSpeed = 2;
-    public const int FaceDirection = 3;
-    public const int GameObject = 4;
-    public const int MoveCommand = 5;
-    public const int MoveDirection = 6;
-    public const int MoveSpeed = 7;
-    public const int Resource = 8;
-    public const int UpdateableAfter = 9;
-    public const int UpdateableBefore = 10;
-    public const int Updateable = 11;
+    public const int Camera = 0;
+    public const int CameraTarget = 1;
+    public const int DesiredFaceDirection = 2;
+    public const int DesiredMoveDirection = 3;
+    public const int DesiredMoveSpeed = 4;
+    public const int FaceDirection = 5;
+    public const int GameObject = 6;
+    public const int MoveCommand = 7;
+    public const int MoveDirection = 8;
+    public const int MoveSpeed = 9;
+    public const int Resource = 10;
+    public const int Transformation = 11;
+    public const int UpdateableAfter = 12;
+    public const int UpdateableBefore = 13;
+    public const int Updateable = 14;
 
-    public const int TotalComponents = 12;
+    public const int TotalComponents = 15;
 
     public static readonly string[] componentNames = {
+        "Camera",
+        "CameraTarget",
         "DesiredFaceDirection",
         "DesiredMoveDirection",
         "DesiredMoveSpeed",
@@ -32,12 +37,15 @@ public static class CoreComponentIds {
         "MoveDirection",
         "MoveSpeed",
         "Resource",
+        "Transformation",
         "UpdateableAfter",
         "UpdateableBefore",
         "Updateable"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(SeshFT.Gameplay.CameraComponent),
+        typeof(SeshFT.Gameplay.CameraTargetComponent),
         typeof(SeshFT.Gameplay.DesiredFaceDirectionComponent),
         typeof(SeshFT.Gameplay.DesiredMoveDirectionComponent),
         typeof(SeshFT.Gameplay.DesiredMoveSpeedComponent),
@@ -47,6 +55,7 @@ public static class CoreComponentIds {
         typeof(SeshFT.Gameplay.MoveDirectionComponent),
         typeof(SeshFT.Gameplay.MoveSpeedComponent),
         typeof(SeshFT.Gameplay.ResourceComponent),
+        typeof(SeshFT.Gameplay.TransformationComponent),
         typeof(SeshFT.Gameplay.UpdateableAfterComponent),
         typeof(SeshFT.Gameplay.UpdateableBeforeComponent),
         typeof(SeshFT.Gameplay.UpdateableComponent)

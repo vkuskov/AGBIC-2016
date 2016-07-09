@@ -23,42 +23,21 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-
 using Entitas;
 using Heartcatch.MathLib;
 
 namespace SeshFT.Gameplay {
 
     [Core]
-    public sealed class ResourceComponent : IComponent {
-        public string assetBundle;
-        public string assetName;
+    public class CameraTargetComponent : IComponent {
+        public Vector3 value;
     }
 
     [Core]
-    public sealed class GameObjectComponent : IComponent {
-        public IGameObject value;
+    public class CameraComponent : IComponent {
+        public float yaw;
+        public float pitch;
+        public float fov;
+        public float distance;
     }
-
-    [Core]
-    public sealed class UpdateableComponent : IComponent {
-        public IUpdateable value;
-    }
-
-    [Core]
-    public sealed class UpdateableBeforeComponent : IComponent {
-        public IUpdateableBefore value;
-    }
-
-    [Core]
-    public sealed class UpdateableAfterComponent : IComponent {
-        public IUpdateableAfter value;
-    }
-
-    [Core]
-    public class TransformationComponent : IComponent {
-        public Vector3 position;
-        public Quaternion rotation;
-    }
-
 }

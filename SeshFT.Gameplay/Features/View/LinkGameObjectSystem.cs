@@ -37,7 +37,7 @@ namespace SeshFT.Gameplay {
         public void Execute(List<Entity> entities) {
             foreach (var it in entities) {
                 var go = it.gameObject.value;
-                go.OnEntityCreated(it);
+                go.OnAddedToEntity(it);
                 var updateable = go as IUpdateable;
                 if (updateable != null) {
                     it.AddUpdateable(updateable);

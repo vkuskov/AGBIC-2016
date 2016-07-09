@@ -118,6 +118,10 @@
     <Compile Include="Generated\SeshFT.Gameplay.MoveCommandComponentGeneratedExtension.cs" />
     <Compile Include="Generated\SeshFT.Gameplay.MoveDirectionComponentGeneratedExtension.cs" />
     <Compile Include="Generated\SeshFT.Gameplay.MoveSpeedComponentGeneratedExtension.cs" />
+    <Compile Include="Features\Camera\Components.cs" />
+    <Compile Include="Generated\SeshFT.Gameplay.CameraComponentGeneratedExtension.cs" />
+    <Compile Include="Generated\SeshFT.Gameplay.CameraTargetComponentGeneratedExtension.cs" />
+    <Compile Include="Generated\SeshFT.Gameplay.TransformationComponentGeneratedExtension.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -126,6 +130,7 @@
     <Folder Include="Features\" />
     <Folder Include="Features\View\" />
     <Folder Include="Features\Move\" />
+    <Folder Include="Features\Camera\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Entitas\entitas_version" />

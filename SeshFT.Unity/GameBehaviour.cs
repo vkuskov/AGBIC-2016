@@ -34,8 +34,11 @@ namespace SeshFT.Unity {
         
         public Entity Entity { get; private set; }
 
-        public void OnEntityCreated(Entity entity) {
+        public void OnAddedToEntity(Entity entity) {
             Entity = entity;
+            if (entity.hasTransformation) {
+                
+            }
         }
 
         public void Destroy() {

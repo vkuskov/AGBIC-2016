@@ -28,7 +28,7 @@ using Entitas;
 
 namespace SeshFT.Gameplay {
     public interface IGameObject {
-        void OnEntityCreated(Entity entity);
+        void OnAddedToEntity(Entity entity);
         void Destroy();
     }
 }
