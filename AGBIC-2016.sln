@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeshFT.Gameplay", "SeshFT.Gameplay\SeshFT.Gameplay.csproj", "{0B5C8191-08B1-4C5A-836E-2DEC7E171EEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeshFT.CodeGen", "SeshFT.CodeGen\SeshFT.CodeGen.csproj", "{8E79766C-413F-471B-ADC3-B2D65E2B8819}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeshFT.Gameplay.Test", "SeshFT.Gameplay.Test\SeshFT.Gameplay.Test.csproj", "{D4152D0E-E90C-490E-8627-F3D8A069C618}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeshFT.Unity", "SeshFT.Unity\SeshFT.Unity.csproj", "{EA3AC297-44AD-4D86-978C-7BD67D4C597C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Any CPU = Default|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B5C8191-08B1-4C5A-836E-2DEC7E171EEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B5C8191-08B1-4C5A-836E-2DEC7E171EEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B5C8191-08B1-4C5A-836E-2DEC7E171EEA}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B5C8191-08B1-4C5A-836E-2DEC7E171EEA}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{0B5C8191-08B1-4C5A-836E-2DEC7E171EEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B5C8191-08B1-4C5A-836E-2DEC7E171EEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E79766C-413F-471B-ADC3-B2D65E2B8819}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E79766C-413F-471B-ADC3-B2D65E2B8819}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E79766C-413F-471B-ADC3-B2D65E2B8819}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E79766C-413F-471B-ADC3-B2D65E2B8819}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{8E79766C-413F-471B-ADC3-B2D65E2B8819}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E79766C-413F-471B-ADC3-B2D65E2B8819}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4152D0E-E90C-490E-8627-F3D8A069C618}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4152D0E-E90C-490E-8627-F3D8A069C618}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4152D0E-E90C-490E-8627-F3D8A069C618}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4152D0E-E90C-490E-8627-F3D8A069C618}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{D4152D0E-E90C-490E-8627-F3D8A069C618}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4152D0E-E90C-490E-8627-F3D8A069C618}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA3AC297-44AD-4D86-978C-7BD67D4C597C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA3AC297-44AD-4D86-978C-7BD67D4C597C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA3AC297-44AD-4D86-978C-7BD67D4C597C}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA3AC297-44AD-4D86-978C-7BD67D4C597C}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{EA3AC297-44AD-4D86-978C-7BD67D4C597C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA3AC297-44AD-4D86-978C-7BD67D4C597C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = Hierarchical
+		$1.ResourceNamePolicy = FileName
+	EndGlobalSection
+EndGlobal
