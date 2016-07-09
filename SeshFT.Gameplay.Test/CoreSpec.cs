@@ -28,6 +28,7 @@ using System.Reflection;
 using Entitas;
 using Heartcatch.Core;
 using NSpec;
+using NSubstitute;
 
 namespace SeshFT.Gameplay.Test {
     
@@ -57,6 +58,10 @@ namespace SeshFT.Gameplay.Test {
 
         protected void execute() {
             _systems.Execute();
+        }
+
+        protected void setGameTime(GameTime gameTime) {
+            _dm.Get<IGameTimeSystem>().CurrentGameTime.Returns(gameTime);
         }
     }
 }

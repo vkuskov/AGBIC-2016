@@ -27,6 +27,7 @@ using System;
 using NSpec;
 using NSubstitute;
 using Entitas;
+using Heartcatch.Core;
 
 namespace SeshFT.Gameplay.Test {
     public class describe_ViewFeature : CoreSpec {
@@ -149,6 +150,31 @@ namespace SeshFT.Gameplay.Test {
                 execute();
                 entity.hasGameObject.should_be_false();
                 go.Received().Destroy();
+            };
+        }
+
+        void describe_UpdateSystems() {
+            beforeEach = () => {
+                _dm.Register<IGameTimeSystem>(Substitute.For<IGameTimeSystem>());
+            };
+            it["Should update all Update* components with same GameTime"] = () => {
+                var updateable = Substitute.For<IUpdateable>();
+                var updateableBefore = Substitute.For<IUpdateableBefore>();
+                var updateableAfter = Substitute.For<IUpdateableAfter>();
+                addSystem<UpdateBeforeSystem>();
+                addSystem<UpdateSystem>();
+                addSystem<UpdateAfterSystem>();
+                createEntity()
+                    .AddUpdateable(updateable)
+                    .AddUpdateableBefore(updateableBefore)
+                    .AddUpdateableAfter(updateableAfter);
+                var gameTime = new GameTime(TimeSpan.FromSeconds(1.0), TimeSpan.FromSeconds(2.0), 3);
+                setGameTime(gameTime);
+                execute();
+                updateableBefore.Received().OnUpdateBefore(gameTime);
+                updateable.Received().OnUpdate(gameTime);
+                updateableAfter.Received().OnUpdateAfter(gameTime);
+
             };
         }
     }

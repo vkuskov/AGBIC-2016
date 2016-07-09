@@ -31,47 +31,65 @@ using Heartcatch.Core;
 namespace SeshFT.Gameplay {
 
     public class UpdateSystem : BaseSystem, IExecuteSystem, ISetPool {
+        [Inject]
+        private IGameTimeSystem _timeSystem;
+
         private Group _group;
 
         public UpdateSystem(IDependencyManager dm) : base(dm) {
         }
 
         public void Execute() {
-            throw new NotImplementedException();
+            var gameTime = _timeSystem.CurrentGameTime;
+            foreach (var it in _group.GetEntities()) {
+                it.updateable.value.OnUpdate(gameTime);
+            }
         }
 
         public void SetPool(Pool pool) {
-            throw new NotImplementedException();
+            _group = pool.GetGroup(CoreMatcher.Updateable);
         }
     }
 
     public class UpdateBeforeSystem : BaseSystem, IExecuteSystem, ISetPool {
+        [Inject]
+        private IGameTimeSystem _timeSystem;
+
         private Group _group;
 
         public UpdateBeforeSystem(IDependencyManager dm) : base(dm) {
         }
 
         public void Execute() {
-            throw new NotImplementedException();
+            var gameTime = _timeSystem.CurrentGameTime;
+            foreach (var it in _group.GetEntities()) {
+                it.updateableBefore.value.OnUpdateBefore(gameTime);
+            }
         }
 
         public void SetPool(Pool pool) {
-            throw new NotImplementedException();
+            _group = pool.GetGroup(CoreMatcher.UpdateableBefore);
         }
     }
 
     public class UpdateAfterSystem : BaseSystem, IExecuteSystem, ISetPool {
+        [Inject]
+        private IGameTimeSystem _timeSystem;
+
         private Group _group;
 
         public UpdateAfterSystem(IDependencyManager dm) : base(dm) {
         }
 
         public void Execute() {
-            throw new NotImplementedException();
+            var gameTime = _timeSystem.CurrentGameTime;
+            foreach (var it in _group.GetEntities()) {
+                it.updateableAfter.value.OnUpdateAfter(gameTime);
+            }
         }
 
         public void SetPool(Pool pool) {
-            throw new NotImplementedException();
+            _group = pool.GetGroup(CoreMatcher.UpdateableAfter);
         }
     }
 }
