@@ -33,9 +33,22 @@
       <HintPath>..\..\Heartcatch\Deps\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Heartcatch.Core">
+      <HintPath>..\Deps\Heartcatch.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Heartcatch.MathLib">
+      <HintPath>..\Deps\Heartcatch.MathLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Heartcatch.Unity">
+      <HintPath>..\Deps\Heartcatch.Unity.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GameRunner.cs" />
+    <Compile Include="UnityResourceLoader.cs" />
+    <Compile Include="ClientCoreSystems.cs" />
+    <Compile Include="GameBehaviour.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
