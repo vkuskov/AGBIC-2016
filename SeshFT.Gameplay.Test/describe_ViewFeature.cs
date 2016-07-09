@@ -32,17 +32,40 @@ namespace SeshFT.Gameplay.Test {
     public class describe_ViewFeature : CoreSpec {
 
         void describe_GameObjectLoader() {
-            IResourceLoader loader = null;
             beforeEach = () => {
-                loader = Substitute.For<IResourceLoader>();
-                _dm.Register<IResourceLoader>(loader);
+                _dm.Register<IResourceLoader>(Substitute.For<IResourceLoader>());
                 addSystem<GameObjectLoaderSystem>();
             };
             it["Should load GameObject by name"] = () => {
+                var loader = _dm.Get<IResourceLoader>();
                 createEntity()
                     .AddResource("AssetBundle", "AssetName");
                 execute();
                 loader.Received().LoadGameObject("AssetBundle", "AssetName");
+            };
+            it["Should add GameObjectComponent"] = () => {
+                var loader = _dm.Get<IResourceLoader>();
+                var go = Substitute.For<IGameObject>();
+                loader.LoadGameObject(Arg.Any<string>(), Arg.Any<string>()).Returns(go);
+                var entity = createEntity()
+                    .AddResource("AssetBundle", "AssetName");
+                execute();
+                entity.hasGameObject.should_be_true();
+                entity.gameObject.value.should_be(go);
+            };
+            it["Should destroy GameObject if component was removed"] = () => {
+                var go = Substitute.For<IGameObject>();
+                var entity = createEntity()
+                    .AddGameObject(go);
+                entity.RemoveGameObject();
+                go.Received().Destroy();
+            };                
+            it["Should destroy GameObject if entity was destroyed"] = () => {
+                var go = Substitute.For<IGameObject>();
+                var entity = createEntity()
+                    .AddGameObject(go);
+                _pool.DestroyEntity(entity);
+                go.Received().Destroy();
             };
         }
 

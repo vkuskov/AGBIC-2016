@@ -1,5 +1,5 @@
 ﻿//
-// GameObjectLoaderSystem.cs
+// UnlinkGameObjectSystem.cs
 //
 // Author:
 //       Vladimir Kuskov <vladimir.kuskov@hotmail.com>
@@ -23,7 +23,6 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-
 using System;
 using System.Collections.Generic;
 using Entitas;
@@ -31,38 +30,19 @@ using Heartcatch.Core;
 
 namespace SeshFT.Gameplay {
     
-    public class GameObjectLoaderSystem : BaseSystem, IReactiveSystem, ISetPool {
-        [Inject]
-        private IResourceLoader _loader;
-
-        public GameObjectLoaderSystem(IDependencyManager dm) : base(dm) {
+    public class UnlinkGameObjectSystem : BaseSystem, IReactiveSystem {
+        public UnlinkGameObjectSystem(IDependencyManager dm) : base(dm) {
         }
 
         public void Execute(List<Entity> entities) {
-            foreach (var it in entities) {
-                var resource = it.resource;
-                var go = _loader.LoadGameObject(resource.assetBundle, resource.assetName);
-                it.AddGameObject(go);
-            }
-        }
-
-        private void onGameObjectRemoved(Group group, Entity entity, int index, IComponent component) {
-            if (component is GameObjectComponent) {
-                var go = ((GameObjectComponent)component).value;
-                go.Destroy();
-            }
+            throw new NotImplementedException();
         }
 
         public TriggerOnEvent trigger {
             get {
-                return CoreMatcher.Resource.OnEntityAdded();
+                throw new NotImplementedException();
             }
         }
-
-        public void SetPool(Pool pool) {
-            pool.GetGroup(CoreMatcher.GameObject).OnEntityRemoved += onGameObjectRemoved;
-        }
     }
-
 }
 

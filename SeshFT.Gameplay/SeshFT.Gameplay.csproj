@@ -108,6 +108,7 @@
     <Compile Include="Features\View\GameObjectLoaderSystem.cs" />
     <Compile Include="Features\View\LinkGameObjectSystem.cs" />
     <Compile Include="Features\View\UpdateSystems.cs" />
+    <Compile Include="Features\View\UnlinkGameObjectSystem.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
