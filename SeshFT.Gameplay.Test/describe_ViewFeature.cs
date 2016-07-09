@@ -105,6 +105,52 @@ namespace SeshFT.Gameplay.Test {
                 entity.updateableAfter.value.should_be(updateable);
             };
         }
+
+        void describe_UnlinkGameObject() {
+            beforeEach = () => {
+                addSystem<UnlinkGameObjectSystem>();
+            };
+            it["Should remove all Update* components if GameObject was removed"] = () => {
+                var entity = createEntity()
+                    .AddGameObject(null)
+                    .AddUpdateable(null)
+                    .AddUpdateableAfter(null)
+                    .AddUpdateableBefore(null);
+                entity.RemoveGameObject();
+                execute();
+                entity.hasUpdateable.should_be_false();
+                entity.hasUpdateableAfter.should_be_false();
+                entity.hasUpdateableBefore.should_be_false();
+            };
+        }
+
+        void describe_UnloadGameObject() {
+            beforeEach = () => {
+                addSystem<UnloadGameObjectSystem>();
+            };
+            it["Should remove GameObjectComponent if resource was removed"] = () => {
+                var entity = createEntity()
+                    .AddResource(null, null)
+                    .AddGameObject(null);
+                entity.RemoveResource();
+                execute();
+                entity.hasGameObject.should_be_false();
+            };
+            it["Should destory GameObject if resource was removed"] = () => {
+                var loader = _dm.Register<IResourceLoader>(Substitute.For<IResourceLoader>());
+                var go = Substitute.For<IGameObject>();
+                loader.LoadGameObject(Arg.Any<string>(), Arg.Any<string>()).Returns(go);
+                addSystem<GameObjectLoaderSystem>();
+                var entity = createEntity()
+                    .AddResource(null, null);
+                execute();
+                entity.hasGameObject.should_be_true();
+                entity.RemoveResource();
+                execute();
+                entity.hasGameObject.should_be_false();
+                go.Received().Destroy();
+            };
+        }
     }
 }
 

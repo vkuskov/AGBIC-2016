@@ -1,5 +1,5 @@
 ﻿//
-// UnlinkGameObjectSystem.cs
+// UnloadGameObjectSystem.cs
 //
 // Author:
 //       Vladimir Kuskov <vladimir.kuskov@hotmail.com>
@@ -30,27 +30,25 @@ using Heartcatch.Core;
 
 namespace SeshFT.Gameplay {
     
-    public class UnlinkGameObjectSystem : BaseSystem, IReactiveSystem {
-        public UnlinkGameObjectSystem(IDependencyManager dm) : base(dm) {
+    public class UnloadGameObjectSystem : BaseSystem, IReactiveSystem, IEnsureComponents {
+        public UnloadGameObjectSystem(IDependencyManager dm) : base(dm) {
         }
 
         public void Execute(List<Entity> entities) {
             foreach (var it in entities) {
-                if (it.hasUpdateable) {
-                    it.RemoveUpdateable();
-                }
-                if (it.hasUpdateableAfter) {
-                    it.RemoveUpdateableAfter();
-                }
-                if (it.hasUpdateableBefore) {
-                    it.RemoveUpdateableBefore();
-                }
+                it.RemoveGameObject();
             }
         }
 
         public TriggerOnEvent trigger {
             get {
-                return CoreMatcher.GameObject.OnEntityRemoved();
+                return CoreMatcher.Resource.OnEntityRemoved();
+            }
+        }
+
+        public IMatcher ensureComponents {
+            get {
+                return CoreMatcher.GameObject;
             }
         }
     }
