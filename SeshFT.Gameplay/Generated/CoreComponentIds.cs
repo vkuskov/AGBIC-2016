@@ -9,30 +9,36 @@
 public static class CoreComponentIds {
     public const int Camera = 0;
     public const int CameraTarget = 1;
-    public const int DesiredFaceDirection = 2;
-    public const int DesiredMoveDirection = 3;
-    public const int DesiredMoveSpeed = 4;
-    public const int FaceDirection = 5;
-    public const int GameObject = 6;
-    public const int MoveCommand = 7;
-    public const int MoveDirection = 8;
-    public const int MoveSpeed = 9;
-    public const int Resource = 10;
-    public const int Transformation = 11;
-    public const int UpdateableAfter = 12;
-    public const int UpdateableBefore = 13;
-    public const int Updateable = 14;
+    public const int CameraTargetEntity = 2;
+    public const int DesiredFaceDirection = 3;
+    public const int DesiredMoveDirection = 4;
+    public const int DesiredMoveSpeed = 5;
+    public const int FaceDirection = 6;
+    public const int GameObject = 7;
+    public const int GameplayCameraParams = 8;
+    public const int GameplayCameraState = 9;
+    public const int MoveCommand = 10;
+    public const int MoveDirection = 11;
+    public const int MoveSpeed = 12;
+    public const int Resource = 13;
+    public const int Transformation = 14;
+    public const int UpdateableAfter = 15;
+    public const int UpdateableBefore = 16;
+    public const int Updateable = 17;
 
-    public const int TotalComponents = 15;
+    public const int TotalComponents = 18;
 
     public static readonly string[] componentNames = {
         "Camera",
         "CameraTarget",
+        "CameraTargetEntity",
         "DesiredFaceDirection",
         "DesiredMoveDirection",
         "DesiredMoveSpeed",
         "FaceDirection",
         "GameObject",
+        "GameplayCameraParams",
+        "GameplayCameraState",
         "MoveCommand",
         "MoveDirection",
         "MoveSpeed",
@@ -46,11 +52,14 @@ public static class CoreComponentIds {
     public static readonly System.Type[] componentTypes = {
         typeof(SeshFT.Gameplay.CameraComponent),
         typeof(SeshFT.Gameplay.CameraTargetComponent),
+        typeof(SeshFT.Gameplay.CameraTargetEntityComponent),
         typeof(SeshFT.Gameplay.DesiredFaceDirectionComponent),
         typeof(SeshFT.Gameplay.DesiredMoveDirectionComponent),
         typeof(SeshFT.Gameplay.DesiredMoveSpeedComponent),
         typeof(SeshFT.Gameplay.FaceDirectionComponent),
         typeof(SeshFT.Gameplay.GameObjectComponent),
+        typeof(SeshFT.Gameplay.GameplayCameraParamsComponent),
+        typeof(SeshFT.Gameplay.GameplayCameraStateComponent),
         typeof(SeshFT.Gameplay.MoveCommandComponent),
         typeof(SeshFT.Gameplay.MoveDirectionComponent),
         typeof(SeshFT.Gameplay.MoveSpeedComponent),

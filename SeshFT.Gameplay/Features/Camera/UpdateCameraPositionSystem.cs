@@ -1,5 +1,5 @@
 ﻿//
-// Components.cs
+// UpdateCameraPositionSystem.cs
 //
 // Author:
 //       Vladimir Kuskov <vladimir.kuskov@hotmail.com>
@@ -23,43 +23,25 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
+using System;
 using Entitas;
-using Entitas.CodeGenerator;
+using Heartcatch.Core;
 using Heartcatch.MathLib;
 
 namespace SeshFT.Gameplay {
+    
+    public class UpdateCameraPositionSystem : BaseSystem, IExecuteSystem, ISetPool {
+        
+        public UpdateCameraPositionSystem(IDependencyManager dm) : base(dm) {
+        }
 
-    [Core]
-    public class CameraTargetComponent : IComponent {
-        public Vector3 value;
+        public void Execute() {
+            throw new NotImplementedException();
+        }
+
+        public void SetPool(Pool pool) {
+            throw new NotImplementedException();
+        }
     }
-
-    [Core]
-    public class CameraComponent : IComponent {
-        public float yaw;
-        public float pitch;
-        public float size;
-        public float distance;
-    }
-
-    [Core]
-    public class GameplayCameraStateComponent : IComponent {
-        public float targetSpeed;
-        public float currentZoom;
-    }
-
-    [Core]
-    public class GameplayCameraParamsComponent : IComponent {
-        public float minSize;
-        public float maxSize;
-        public float minDistance;
-        public float maxDistance;
-        public float maxTargetSpeed;
-        public float cameraZoomSpeed;
-    }
-
-    [Core]
-    public class CameraTargetEntityComponent : IComponent {
-    }
-
 }
+

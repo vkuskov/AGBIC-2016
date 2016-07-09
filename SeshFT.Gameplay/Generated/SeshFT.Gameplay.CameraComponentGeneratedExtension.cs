@@ -14,20 +14,20 @@ namespace Entitas {
 
         public bool hasCamera { get { return HasComponent(CoreComponentIds.Camera); } }
 
-        public Entity AddCamera(float newYaw, float newPitch, float newFov, float newDistance) {
+        public Entity AddCamera(float newYaw, float newPitch, float newSize, float newDistance) {
             var component = CreateComponent<SeshFT.Gameplay.CameraComponent>(CoreComponentIds.Camera);
             component.yaw = newYaw;
             component.pitch = newPitch;
-            component.fov = newFov;
+            component.size = newSize;
             component.distance = newDistance;
             return AddComponent(CoreComponentIds.Camera, component);
         }
 
-        public Entity ReplaceCamera(float newYaw, float newPitch, float newFov, float newDistance) {
+        public Entity ReplaceCamera(float newYaw, float newPitch, float newSize, float newDistance) {
             var component = CreateComponent<SeshFT.Gameplay.CameraComponent>(CoreComponentIds.Camera);
             component.yaw = newYaw;
             component.pitch = newPitch;
-            component.fov = newFov;
+            component.size = newSize;
             component.distance = newDistance;
             ReplaceComponent(CoreComponentIds.Camera, component);
             return this;
