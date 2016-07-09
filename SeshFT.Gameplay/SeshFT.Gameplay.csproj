@@ -110,6 +110,14 @@
     <Compile Include="Features\View\UpdateSystems.cs" />
     <Compile Include="Features\View\UnlinkGameObjectSystem.cs" />
     <Compile Include="Features\View\UnloadGameObjectSystem.cs" />
+    <Compile Include="Features\Move\Components.cs" />
+    <Compile Include="Generated\SeshFT.Gameplay.DesiredFaceDirectionComponentGeneratedExtension.cs" />
+    <Compile Include="Generated\SeshFT.Gameplay.DesiredMoveDirectionComponentGeneratedExtension.cs" />
+    <Compile Include="Generated\SeshFT.Gameplay.DesiredMoveSpeedComponentGeneratedExtension.cs" />
+    <Compile Include="Generated\SeshFT.Gameplay.FaceDirectionComponentGeneratedExtension.cs" />
+    <Compile Include="Generated\SeshFT.Gameplay.MoveCommandComponentGeneratedExtension.cs" />
+    <Compile Include="Generated\SeshFT.Gameplay.MoveDirectionComponentGeneratedExtension.cs" />
+    <Compile Include="Generated\SeshFT.Gameplay.MoveSpeedComponentGeneratedExtension.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -117,6 +125,7 @@
     <Folder Include="Generated\" />
     <Folder Include="Features\" />
     <Folder Include="Features\View\" />
+    <Folder Include="Features\Move\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Entitas\entitas_version" />

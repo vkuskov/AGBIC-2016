@@ -7,16 +7,30 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public static class CoreComponentIds {
-    public const int GameObject = 0;
-    public const int Resource = 1;
-    public const int UpdateableAfter = 2;
-    public const int UpdateableBefore = 3;
-    public const int Updateable = 4;
+    public const int DesiredFaceDirection = 0;
+    public const int DesiredMoveDirection = 1;
+    public const int DesiredMoveSpeed = 2;
+    public const int FaceDirection = 3;
+    public const int GameObject = 4;
+    public const int MoveCommand = 5;
+    public const int MoveDirection = 6;
+    public const int MoveSpeed = 7;
+    public const int Resource = 8;
+    public const int UpdateableAfter = 9;
+    public const int UpdateableBefore = 10;
+    public const int Updateable = 11;
 
-    public const int TotalComponents = 5;
+    public const int TotalComponents = 12;
 
     public static readonly string[] componentNames = {
+        "DesiredFaceDirection",
+        "DesiredMoveDirection",
+        "DesiredMoveSpeed",
+        "FaceDirection",
         "GameObject",
+        "MoveCommand",
+        "MoveDirection",
+        "MoveSpeed",
         "Resource",
         "UpdateableAfter",
         "UpdateableBefore",
@@ -24,7 +38,14 @@ public static class CoreComponentIds {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(SeshFT.Gameplay.DesiredFaceDirectionComponent),
+        typeof(SeshFT.Gameplay.DesiredMoveDirectionComponent),
+        typeof(SeshFT.Gameplay.DesiredMoveSpeedComponent),
+        typeof(SeshFT.Gameplay.FaceDirectionComponent),
         typeof(SeshFT.Gameplay.GameObjectComponent),
+        typeof(SeshFT.Gameplay.MoveCommandComponent),
+        typeof(SeshFT.Gameplay.MoveDirectionComponent),
+        typeof(SeshFT.Gameplay.MoveSpeedComponent),
         typeof(SeshFT.Gameplay.ResourceComponent),
         typeof(SeshFT.Gameplay.UpdateableAfterComponent),
         typeof(SeshFT.Gameplay.UpdateableBeforeComponent),
