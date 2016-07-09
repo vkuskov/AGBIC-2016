@@ -29,7 +29,11 @@ runTests() {
 }
 
 deploy() {
-    rm -rf "$TARGET/Deps"
-    mkdir "$TARGET/Deps"
+    echo "Copy to Unity project..."
+
+    rm -f "$TARGET/Deps/*.dll"
+    mkdir -p "$TARGET/Deps"
     cp SeshFT.Unity/bin/Release/*.dll "$TARGET/Deps"
+
+    echo "Finished!"
 }
